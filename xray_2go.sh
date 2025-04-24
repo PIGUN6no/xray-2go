@@ -205,22 +205,22 @@ cat > "${config_dir}" << EOF
       "port": 3002, "listen": "127.0.0.1", "protocol": "vless",
       "settings": { "clients": [{ "id": "$UUID", "level": 0 }], "decryption": "none" },
       "streamSettings": { "network": "ws", "security": "none", "wsSettings": { "path": "/vless-argo" } },
-      "sniffing": { "enabled": true, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
+      "sniffing": { "enabled": false, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
     },
     {
       "port": 3003, "listen": "127.0.0.1", "protocol": "vmess",
       "settings": { "clients": [{ "id": "$UUID", "alterId": 0 }] },
       "streamSettings": { "network": "ws", "wsSettings": { "path": "/vmess-argo" } },
-      "sniffing": { "enabled": true, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
+      "sniffing": { "enabled": false, "destOverride": ["http", "tls", "quic"], "metadataOnly": false }
     },
     {
       "port": 3004, "listen": "127.0.0.1", "protocol": "vmess",
       "settings": {"clients": [{"id": "$UUID", "alterId": 0, "security": "auto"}]},
       "streamSettings": {"network": "xhttp", "security": "none", "xhttpSettings": {"host": "", "path": ""}},
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"], "metadataOnly": false}
+      "sniffing": {"enabled": false, "destOverride": ["http", "tls", "quic"], "metadataOnly": false}
     },
     {
-      "listen":"::","port":$GRPC_PORT,"protocol":"vless","settings":{"clients":[{"id":"$UUID"}],"decryption":"none"},"streamSettings":{"network":"grpc","security":"reality","realitySettings":{"dest":"www.iij.ad.jp:443","serverNames":["www.iij.ad.jp"],"privateKey":"$private_key","shortIds":[""]},"grpcSettings":{"serviceName":"grpc"}},"sniffing":{"enabled":true,"destOverride":["http","tls","quic"]}}
+      "listen":"::","port":$GRPC_PORT,"protocol":"vless","settings":{"clients":[{"id":"$UUID"}],"decryption":"none"},"streamSettings":{"network":"grpc","security":"reality","realitySettings":{"dest":"www.iij.ad.jp:443","serverNames":["www.iij.ad.jp"],"privateKey":"$private_key","shortIds":[""]},"grpcSettings":{"serviceName":"grpc"}},"sniffing":{"enabled":false,"destOverride":["http","tls","quic"]}}
   ],
   "dns": { "servers": ["https+local://8.8.8.8/dns-query"] },
    "outbounds": [
